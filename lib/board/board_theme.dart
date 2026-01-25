@@ -216,6 +216,18 @@ class BoardTheme {
     lineColor: Color.fromARGB(255, 161, 201, 175),
   );
 
+  static const jadeWalrus2 = BoardTheme(
+    id: 'jade_walrus2',
+    displayName: 'Jade Walrus by Pumu 2',
+    background:
+        SolidColorBoardBackground(color: Color.fromARGB(255, 88, 132, 105)),
+    blackStone:
+        SolidColorStone(color: Color.fromARGB(255, 11, 35, 23), border: false),
+    whiteStone: SolidColorStone(
+        color: Color.fromARGB(255, 214, 225, 219), border: true),
+    lineColor: Color.fromARGB(255, 161, 201, 175),
+  );
+
   static const themes = {
     'plain': plain,
     'plain_gradient': plainGradient,
