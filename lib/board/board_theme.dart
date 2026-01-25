@@ -243,5 +243,6 @@ class BoardTheme {
     'jumping_moss': jumpingMoss,
     'jade_monkey': jadeMonkey,
     'jade_walrus': jadeWalrus,
+    'jade_walrus2': jadeWalrus2,
   };
 }
