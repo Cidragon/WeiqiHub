@@ -98,6 +98,21 @@ class _ServerLobbyPageState
       },
     );
 
+    final preset = widget.gameClient.automatchPresets;
+    Widget handicapHeader = const SizedBox.shrink();
+    if (preset[0].handicap != null) {
+      print("ogs handicap");
+      handicapHeader = Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+          child: Row(children: [
+            Text(
+              "Rank difference: ",
+            ),
+            Text(preset[0].handicap.toString()),
+            Text(" - "),
+          ]));
+    }
+
     final automatchPresetList = ListView(
       children: <Widget>[
         for (final preset in widget.gameClient.automatchPresets)
@@ -140,6 +155,7 @@ class _ServerLobbyPageState
                 promotionRequirementCard,
                 Divider(),
                 Text(loc.autoMatch),
+                handicapHeader,
                 Expanded(child: automatchPresetList),
               ],
             )
@@ -173,6 +189,7 @@ class _ServerLobbyPageState
                         loc.autoMatch,
                         style: TextTheme.of(context).titleLarge,
                       ),
+                      handicapHeader,
                       Expanded(child: automatchPresetList),
                     ],
                   ),

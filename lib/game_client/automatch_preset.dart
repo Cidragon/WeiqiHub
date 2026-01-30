@@ -10,6 +10,7 @@ class AutomatchPreset {
   final Variant variant;
   final Rules rules;
   final TimeControl timeControl;
+  final List<int>? handicap;
 
   const AutomatchPreset({
     required this.id,
@@ -17,6 +18,7 @@ class AutomatchPreset {
     required this.variant,
     required this.rules,
     required this.timeControl,
+    this.handicap,
   });
 
   @override
@@ -31,7 +33,8 @@ class AutomatchPreset {
         other.boardSize == boardSize &&
         other.variant == variant &&
         other.rules == rules &&
-        other.timeControl == timeControl;
+        other.timeControl == timeControl &&
+        other.handicap == handicap;
   }
 }
 
