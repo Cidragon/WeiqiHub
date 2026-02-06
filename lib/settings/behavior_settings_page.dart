@@ -120,6 +120,17 @@ class _BehaviourSettingsPageState extends State<BehaviourSettingsPage> {
               },
             ),
           ),
+          ListTile(
+            title: Text(loc.autoDownloadGame),
+            subtitle: Text(loc.autoDownloadGameDesc),
+            trailing: Switch(
+              value: context.settings.autoDownloadGame,
+              onChanged: (value) {
+                context.settings.autoDownloadGame = value;
+                setState(() {});
+              },
+            ),
+          ),
         ],
       ),
     );

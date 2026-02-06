@@ -182,6 +182,18 @@ abstract class AppLocalizations {
   /// **'Auto counting'**
   String get autoCounting;
 
+  /// No description provided for @autoDownloadGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto download Game'**
+  String get autoDownloadGame;
+
+  /// No description provided for @autoDownloadGameDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Download a finished online game on settings folder'**
+  String get autoDownloadGameDesc;
+
   /// No description provided for @autoMatch.
   ///
   /// In en, this message translates to:

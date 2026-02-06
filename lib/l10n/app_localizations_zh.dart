@@ -45,6 +45,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get autoCounting => '自动点目';
 
   @override
+  String get autoDownloadGame => 'Auto download Game';
+
+  @override
+  String get autoDownloadGameDesc =>
+      'Download a finished online game on settings folder';
+
+  @override
   String get autoMatch => '自动匹配';
 
   @override

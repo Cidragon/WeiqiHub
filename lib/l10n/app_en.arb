@@ -11,6 +11,8 @@
   "alwaysBlackToPlayDesc": "Set all tasks as black-to-play to avoid confusion",
   "appearance": "Appearance",
   "autoCounting": "Auto counting",
+  "autoDownloadGame": "Auto download Game",
+  "autoDownloadGameDesc": "Download a finished online game on settings folder",
   "autoMatch": "Auto-Match",
   "avgRank": "Avg. rank",
   "behaviour": "Behaviour",

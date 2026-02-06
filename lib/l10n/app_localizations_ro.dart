@@ -46,6 +46,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get autoCounting => 'Numărare automată';
 
   @override
+  String get autoDownloadGame => 'Auto download Game';
+
+  @override
+  String get autoDownloadGameDesc =>
+      'Download a finished online game on settings folder';
+
+  @override
   String get autoMatch => 'Potrivire automată';
 
   @override

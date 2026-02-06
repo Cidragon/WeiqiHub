@@ -46,6 +46,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get autoCounting => 'Автоподсчёт';
 
   @override
+  String get autoDownloadGame => 'Auto download Game';
+
+  @override
+  String get autoDownloadGameDesc =>
+      'Download a finished online game on settings folder';
+
+  @override
   String get autoMatch => 'Автоподбор';
 
   @override

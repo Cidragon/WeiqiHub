@@ -1,13 +1,17 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
 import 'package:wqhub/audio/audio_controller.dart';
 import 'package:wqhub/board/board_annotation.dart';
 import 'package:wqhub/confirm_dialog.dart';
 import 'package:wqhub/game_client/counting_result.dart';
 import 'package:wqhub/game_client/game.dart';
+import 'package:wqhub/game_client/game_client.dart';
 import 'package:wqhub/game_client/game_result.dart';
 import 'package:wqhub/game_client/rules.dart';
 import 'package:wqhub/game_client/server_features.dart';
@@ -19,10 +23,12 @@ import 'package:wqhub/play/game_counting_bar.dart';
 import 'package:wqhub/play/game_navigation_bar.dart';
 import 'package:wqhub/play/gameplay_bar.dart';
 import 'package:wqhub/play/gameplay_menu.dart';
+import 'package:wqhub/play/my_games_page.dart';
 import 'package:wqhub/play/player_card.dart';
 import 'package:wqhub/play/promotion_card.dart';
 import 'package:wqhub/play/streak_card.dart';
 import 'package:wqhub/play/user_info_card.dart';
+import 'package:wqhub/save_sgf_form.dart';
 import 'package:wqhub/settings/shared_preferences_inherited_widget.dart';
 import 'package:wqhub/time_display.dart';
 import 'package:wqhub/timed_dialog.dart';
@@ -31,6 +37,7 @@ import 'package:wqhub/board/board.dart';
 import 'package:wqhub/board/board_settings.dart';
 import 'package:wqhub/board/coordinate_style.dart';
 import 'package:wqhub/wq/grid.dart';
+import 'package:wqhub/wq/rank.dart';
 import 'package:wqhub/wq/region.dart';
 import 'package:wqhub/wq/wq.dart' as wq;
 
@@ -841,8 +848,25 @@ class _GamePageState extends State<GamePage> {
     });
   }
 
-  void onGameResult(GameResult res) {
+  void onGameResult(GameResult res) async {
     if (_state == GameState.over) return;
+
+    //add auto save here
+    print("game ended");
+    print("current auto download setting: " +
+        context.settings.autoDownloadGame.toString());
+
+    final summary = GameSummary(
+        id: widget.game.id,
+        rules: widget.game.rules,
+        boardSize: widget.game.boardSize,
+        komi: widget.game.komi,
+        white: widget.game.white.value,
+        black: widget.game.black.value,
+        dateTime: DateTime.now(),
+        result: res);
+
+    _MyGamesPageState.onDownload(context, summary);
 
     // Dismiss any existing dialog
     maybeDismissRoute(_waitingDialogName);
